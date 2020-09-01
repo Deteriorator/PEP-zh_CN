@@ -2,13 +2,25 @@
 PEP 333 - Python Web Server Gateway Interface v1.0
 ===============================================================================
 
-内容
+ | PEP: 333
+ | Title: Python Web Server Gateway Interface v1.0
+ | Version: $Revision$
+ | Last-Modified: $Date$
+ | Author: Phillip J. Eby <pje@telecommunity.com>
+ | Discussions-To: Python Web-SIG <web-sig@python.org>
+ | Status: Final
+ | Type: Informational
+ | Content-Type: text/x-rst
+ | Created: 07-Dec-2003
+ | Post-History: 07-Dec-2003, 08-Aug-2004, 20-Aug-2004, 27-Aug-2004, 27-Sep-2010
+ | Superseded-By: 3333
+
 
 前言
 ======
 
-注意: 对于支持 Python 3.x 的这个规范的更新版本，并包括社区勘误表、补充和说明，请参阅P
-EP 3333。
+注意: 对于支持 Python 3.x 的这个规范的更新版本，并包括社区勘误表、补充和说明，请参阅PEP 
+3333。
 
 摘要
 ======
@@ -28,27 +40,19 @@ Webware、SkunkWeb、PSO 和 Twisted web。对于新的Python 用户来说，这
 使用任意 Java web 应用程序框架编写的应用程序能够在支持 servlet API 的任意 web 服务器
 中运行。
 
-The availability and widespread use of such an API in web servers for
-Python -- whether those servers are written in Python (e.g. Medusa),
-embed Python (e.g. mod_python), or invoke Python via a gateway
-protocol (e.g. CGI, FastCGI, etc.) -- would separate choice of
-framework from choice of web server, freeing users to choose a pairing
-that suits them, while freeing framework and server developers to
-focus on their preferred area of specialization.
+Python Web 服务器中此类 API 的可用性和广泛使用将会使框架的选择与 Web 服务器的选择分开, 
+不管这些服务器是用 Python 编写的 (如 Medusa), 嵌入式 Python 编写的 (如 mod_python), 
+或是通过网关协议调用 Python (如 CGI, FastCGI 等等), 用户可以自由地选择适合自己的框架
+和服务器组合，而框架和服务器开发人员可以自由地专注于自己喜欢的专业领域。
 
-This PEP, therefore, proposes a simple and universal interface between
-web servers and web applications or frameworks: the Python Web Server
-Gateway Interface (WSGI).
+因此，这个 PEP 文档在 Web 服务器和 Web 应用程序或框架之间提出了一个简单而通用的接口: 
+Python Web Server Gateway Interface (WSGI)。
 
-But the mere existence of a WSGI spec does nothing to address the
-existing state of servers and frameworks for Python web applications.
-Server and framework authors and maintainers must actually implement
-WSGI for there to be any effect.
+但是仅仅存在 WSGI 规范并不能解决 Python Web 应用程序的服务器和框架的现有状态。服务器和
+框架的作者和维护者必须实际实现 WSGI 才会对现状有影响。
 
-However, since no existing servers or frameworks support WSGI, there
-is little immediate reward for an author who implements WSGI support.
-Thus, WSGI **must** be easy to implement, so that an author's initial
-investment in the interface can be reasonably low.
+然而，由于现有的服务器或框架没有支持 WSGI，所以实现 WSGI 支持的作者几乎没有直接的回报。
+因此，WSGI 必须易于实现，这样作者在接口上的初始投入就可以相当低。
 
 Thus, simplicity of implementation on *both* the server and framework
 sides of the interface is absolutely critical to the utility of the
