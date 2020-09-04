@@ -54,27 +54,18 @@ Python Web Server Gateway Interface (WSGI)。
 然而，由于现有的服务器或框架没有支持 WSGI，所以实现 WSGI 支持的作者几乎没有直接的回报。
 因此，WSGI 必须易于实现，这样作者在接口上的初始投入就可以相当低。
 
-Thus, simplicity of implementation on *both* the server and framework
-sides of the interface is absolutely critical to the utility of the
-WSGI interface, and is therefore the principal criterion for any
-design decisions.
+因此，接口在服务器端和框架端上实现的简单性对 WSGI 接口的实用性是绝对至关重要的，
+因此也是任何设计决策的主要标准。
 
-Note, however, that simplicity of implementation for a framework
-author is not the same thing as ease of use for a web application
-author.  WSGI presents an absolutely "no frills" interface to the
-framework author, because bells and whistles like response objects and
-cookie handling would just get in the way of existing frameworks'
-handling of these issues.  Again, the goal of WSGI is to facilitate
-easy interconnection of existing servers and applications or
-frameworks, not to create a new web framework.
+但是请注意，对于框架作者来说，实现的简单性与 Web 应用程序作者的易用性不是一回事。WSGI
+为框架作者提供了一个绝对 "无修饰" 的接口，因为像响应对象和 Cookie 的处理等花哨的东西
+只会妨碍现有框架处理这些问题。同样，WSGI 的目标是方便现有服务器和应用程序或框架的互连，
+而不是创建一个新的web框架。
 
-Note also that this goal precludes WSGI from requiring anything that
-is not already available in deployed versions of Python.  Therefore,
-new standard library modules are not proposed or required by this
-specification, and nothing in WSGI requires a Python version greater
-than 2.2.2.  (It would be a good idea, however, for future versions
-of Python to include support for this interface in web servers
-provided by the standard library.)
+还要注意，这一目标排除了 WSGI 需要Python已部署版本中无法提供的任何东西。因此，
+本规范没有提出或要求新的标准库模块，而且 WSGI 中没有任何内容需要大于 Python 2.2.2 版本。
+(不过，对于 Python 的未来版本来说，在标准库提供的 Web 服务器中包含对该接口的支持将是
+一个好主意。)
 
 In addition to ease of implementation for existing and future
 frameworks and servers, it should also be easy to create request
